@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface EspanolRepository extends JpaRepository<Espanol, Number> {
-     Espanol findByPalabra (String palabra);//ToDo arreglar
+     Espanol findByPalabra (String palabra);
      List<Espanol> findAll ();
     //Espanol save (Espanol espanol);
     //Espanol update (EspanolInputDto espanolInputDto);

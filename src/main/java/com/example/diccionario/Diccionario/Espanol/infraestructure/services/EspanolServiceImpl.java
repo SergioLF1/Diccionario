@@ -46,7 +46,11 @@ public class EspanolServiceImpl implements EspanolService {
 
     @Override
     public EspanolOutputDto buscarEspanol(@PathVariable String palabra) {
-        return new EspanolOutputDto(espanolRepository.findByPalabra(palabra));
+        Espanol espanol=espanolRepository.findByPalabra(palabra);
+        if (espanol.isActivo()){
+            return new EspanolOutputDto(espanol);
+        }
+        return null;
     }
 
     @Override
@@ -55,14 +59,19 @@ public class EspanolServiceImpl implements EspanolService {
         List<EspanolOutputDto> list1 =new ArrayList<>();
         EspanolOutputDto outputDto;
         for (Espanol espanol: list) {
-            outputDto=new EspanolOutputDto(espanol);
-            list1.add(outputDto);
+            if (espanol.isActivo()){
+                outputDto=new EspanolOutputDto(espanol);
+                list1.add(outputDto);
+            }
         }
         return list1;
     }
 
     @Override
     public void deleteEspanol(String palabra) {
-        espanolRepository.delete(espanolRepository.findByPalabra(palabra));
+        Espanol espanol=espanolRepository.findByPalabra(palabra);
+        espanol.setActivo(false);
+        espanolRepository.save(espanol);
+        //espanolRepository.delete(espanol);
     }
 }
