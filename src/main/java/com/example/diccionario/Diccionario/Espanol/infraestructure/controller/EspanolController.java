@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:5432")
 @RestController()
 @RequestMapping("/espanol")
@@ -20,9 +21,10 @@ public class EspanolController {
 
     //GetOne
     @GetMapping("/{palabra}")
-    public EspanolOutputDto getOne(@PathVariable("palabra") String palabra)
+    public Object getOne(@PathVariable("palabra") String palabra) throws Exception
     {
-        return espanolService.buscarEspanol(palabra);
+        EspanolOutputDto outputDto= espanolService.buscarEspanol(palabra);
+        return outputDto;
     }
 
     //GetAll

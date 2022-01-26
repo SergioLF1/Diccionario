@@ -37,44 +37,4 @@ public class EspanolSimpleOutputDto {
         this.fecha_alta = espanolo.getFecha_alta();
         this.fecha_modif = espanolo.getFecha_modif();
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getPalabra() {
-        return palabra;
-    }
-
-    public void setPalabra(String palabra) {
-        this.palabra = palabra;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Date getFecha_alta() {
-        return fecha_alta;
-    }
-
-    public void setFecha_alta(Date fecha_alta) {
-        this.fecha_alta = fecha_alta;
-    }
-
-    public Date getFecha_modif() {
-        return fecha_modif;
-    }
-
-    public void setFecha_modif(Date fecha_modif) {
-        this.fecha_modif = fecha_modif;
-    }
 }

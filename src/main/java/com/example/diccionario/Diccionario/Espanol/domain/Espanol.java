@@ -23,6 +23,7 @@ public class Espanol {
     private int id ;
 
     @NotNull
+    @Column(name = "palabra", unique = true)
     private String palabra;
     private String descripcion;
 
